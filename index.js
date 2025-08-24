@@ -56,10 +56,11 @@ app.use("/api/auth", authData);
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    app.listen(process.env.PORT, () =>
-      console.log("server running on port 8080")
+    const port = process.env.PORT || 8080;
+    app.listen(port, "0.0.0.0", () =>
+      console.log(`Server running on port ${port}`)
     );
   })
   .catch((err) => {
-    console.log(err);
+    console.log("MongoDB connection error:", err);
   });
