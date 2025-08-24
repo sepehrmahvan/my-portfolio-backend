@@ -54,7 +54,7 @@ const authData = require("./routes/auth");
 app.use("/api/auth", authData);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     app.listen(process.env.PORT, () =>
       console.log("server running on port 8080")
